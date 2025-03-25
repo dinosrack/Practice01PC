@@ -1,0 +1,95 @@
+﻿<Window x:Class="ProdPructice01.RequestForSelectionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProdPructice01"
+        mc:Ignorable="d"
+        Title="Запросы на выборку" WindowState="Maximized"
+        MinWidth="1280" MinHeight="720" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Width="200" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50,50,0,50">
+            <Button x:Name="Req1"
+                    Content="Задание на 1 запрос"
+                    Height="35"
+                    FontSize="16"
+                    Click="Req1_Click"/>
+
+            <Border Height="35"/>
+
+            <Button x:Name="Req2"
+                    Content="Задание на 2 запрос"
+                    Height="35"
+                    FontSize="16"
+                    Click="Req2_Click"/>
+
+            <Border Height="35"/>
+
+            <Button x:Name="Req3"
+                    Content="Задание на 3 запрос"
+                    Height="35"
+                    FontSize="16"
+                    Click="Req3_Click"/>
+
+            <Border Height="35"/>
+
+            <Button x:Name="Req4"
+                    Content="Задание на 4 запрос"
+                    Height="35"
+                    FontSize="16"
+                    Click="Req4_Click"/>
+
+            <Border Height="35"/>
+            
+            <Button x:Name="Back"
+                    Content="Вернуться к таблицам"
+                    Height="35"
+                    FontSize="16"
+                    Click="Back_Click"/>
+        </StackPanel>
+
+        <TabControl Grid.Column="1" Margin="50" x:Name="Tab">
+            <TabItem Header="Запрос 1" Height="35" FontSize="16" Width="200">
+                <DataGrid x:Name="Table" IsReadOnly="True" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Производитель" Binding="{Binding ManufacturerName}"/>
+                        <DataGridTextColumn Header="Название модели" Binding="{Binding ModelName}"/>
+                        <DataGridTextColumn Header="Дата выпуска" Binding="{Binding ReleaseDate}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+            <TabItem Header="Запрос 2" Height="35" FontSize="16" Width="200">
+                <DataGrid x:Name="Table2" IsReadOnly="True" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Название модели" Binding="{Binding ModelName}"/>
+                        <DataGridTextColumn Header="Частота процессора" Binding="{Binding Cpufrequency}"/>
+                        <DataGridTextColumn Header="Место" Binding="{Binding Location}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+            <TabItem Header="Запрос 3" Height="35" FontSize="16" Width="200">
+                <DataGrid x:Name="Table3" IsReadOnly="True" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Производитель" Binding="{Binding ManufacturerName}"/>
+                        <DataGridTextColumn Header="Цена партии" Binding="{Binding TotalRevenue}"/>                        
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+            <TabItem Header="Запрос 4" Height="35" FontSize="16" Width="200">
+                <DataGrid x:Name="Table4" IsReadOnly="True" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Место" Binding="{Binding Location}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

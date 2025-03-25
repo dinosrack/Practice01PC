@@ -1,0 +1,118 @@
+﻿<Window x:Class="ProdPructice01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProdPructice01"
+        mc:Ignorable="d"
+        Title="Персональные ЭВМ" WindowState="Maximized"
+        MinWidth="1280" MinHeight="720" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Width="200" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50,50,0,50">
+            <Button x:Name="Add"
+                    Content="Добавить"
+                    Height="35"
+                    FontSize="16"
+                    Click="Add_Click"/>
+
+            <Border Height="35"/>
+
+            <Button x:Name="Edit" 
+                    Content="Редактировать"
+                    Height="35"
+                    FontSize="16"
+                    Click="Edit_Click"/>
+
+            <Border Height="35"/>
+
+            <Button x:Name="Remove"
+                    Content="Удалить"
+                    Height="35"
+                    FontSize="16"
+                    Click="Remove_Click"/>
+
+            <Border Height="35"/>
+
+            <Label Content="Введи код для поиска:"
+                   Height="35"
+                   FontSize="16"
+                   HorizontalContentAlignment="Center"/>
+
+            <TextBox x:Name="ID"
+                     Height="35"
+                     VerticalContentAlignment="Center"
+                     FontSize="16"/>
+
+            <Border Height="35"/>
+
+            <Button x:Name="Find"
+                    Content="Найти"
+                    Height="35"
+                    FontSize="16"
+                    Click="Find_Click"/>
+
+            <Border Height="35"/>
+
+            <Button x:Name="Requests"
+                    Content="Запросы на выборку"
+                    Height="35"
+                    FontSize="16"
+                    Click="Requests_Click"/>
+        </StackPanel>
+
+        <TabControl Grid.Column="1" Margin="50" x:Name="Tab">
+            <TabItem Header="Производители" Height="35" FontSize="16" Width="200">
+                <DataGrid x:Name="Table" IsReadOnly="True" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID производителя" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="Место" Binding="{Binding Location}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+            <TabItem Header="Компьютеры" Height="35" FontSize="16" Width="200">
+                <DataGrid x:Name="Table2" IsReadOnly="True" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID компьютера" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="ID производителя" Binding="{Binding ManufacturerId}"/>
+                        <DataGridTextColumn Header="Название" Binding="{Binding ModelName}"/>
+                        <DataGridTextColumn Header="Тип процессора" Binding="{Binding Cputype}"/>
+                        <DataGridTextColumn Header="Частота процессора" Binding="{Binding Cpufrequency}"/>
+                        <DataGridTextColumn Header="Оперативная память" Binding="{Binding Ram}"/>
+                        <DataGridTextColumn Header="Жесткий диск" Binding="{Binding Hdd}"/>
+                        <DataGridTextColumn Header="Дата выпуска" Binding="{Binding ReleaseDate}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+            <TabItem Header="Продавцы" Height="35" FontSize="16" Width="200">
+                <DataGrid x:Name="Table3" IsReadOnly="True" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID продавца" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="Адрес" Binding="{Binding Address}"/>
+                        <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+            <TabItem Header="Рынок" Height="35" FontSize="16" Width="200">
+                <DataGrid x:Name="Table4" IsReadOnly="True" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID предложения" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="ID компьютера" Binding="{Binding ComputerId}"/>
+                        <DataGridTextColumn Header="ID продавца" Binding="{Binding SellerId}"/>
+                        <DataGridTextColumn Header="Размер партии" Binding="{Binding BatchSize}"/>
+                        <DataGridTextColumn Header="Цена партии" Binding="{Binding BatchPrice}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
